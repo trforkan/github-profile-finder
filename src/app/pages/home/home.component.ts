@@ -24,26 +24,18 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.find.getUser('f').subscribe((response:any) => {
-      if(response.status != 404){
-        this.userInfo = response;
-        console.log(this.userInfo);
+    // this.find.getUser('f').subscribe((response:any) => {
+    //   if(response.status != 404){
+    //     this.userInfo = response;
+    //     console.log(this.userInfo);
 
-        this.find.getRepos(this.userInfo.repos_url).subscribe((response)=>{
-          this.userRepos = response;
-        });
+    //     this.find.getRepos(this.userInfo.repos_url).subscribe((response)=>{
+    //       this.userRepos = response;
+    //     });
 
-        // this.find.getGists(this.userInfo.gists_url).subscribe((response)=>{
-        //   this.userGists = response;
-        // });
+    //   }
 
-        // this.find.getSubscriptions(this.userInfo.subscription_url).subscribe((response)=>{
-        //   this.userSubscriptions = response;
-        // });
-
-      }
-
-    });
+    // });
 
   }
 
@@ -68,7 +60,7 @@ export class HomeComponent implements OnInit {
       });
 
 
-    },2000);
+    },1000);
 
     if(this.userName.value.name=="")delete this.userInfo;
 
