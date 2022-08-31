@@ -1,0 +1,98 @@
+<div fxLayout="column" class="page-layout">
+
+  <div fxLayout="column" class="search-box" [formGroup]="userName">
+    <h1 class="title">Search Github Users</h1>
+    <mat-hint>Enter a username to fetch a user profile and repos.</mat-hint>
+    <mat-form-field appearance="outline">
+      <mat-label>Search username....</mat-label>
+      <input formControlName="name" type="text" (keyup)="display()" matInput>
+    </mat-form-field>
+
+  </div>
+
+  <div class="profile-data">
+
+    <div fxLayout="row" fxLayoutAlign="start center" class="search-box profile-details" *ngIf="userInfo">
+
+      <div class="user-information">
+        <div class="display-picture">
+          <img class="dp" [src]="userInfo.avatar_url" alt="">
+        </div>
+        <button  class="view-profile" mat-icon-button matTooltip="View Profile">
+
+          <a [href]="userInfo.html_url" fxLayoutAlign="center center">
+            <img class="view-profile__icon" src="assets/github.png" alt="">
+          </a>
+        </button>
+      </div>
+
+      <div fxLayout="column" class="user-bio-info">
+
+        <div class="bio-info">
+          Name: {{userInfo.name}}
+        </div>
+
+        <div class="bio-info">
+          Company: {{userInfo.company}}
+        </div>
+
+        <div class="bio-info">
+          Email: {{userInfo.email}}
+        </div>
+
+        <div class="bio-info">
+          Bio: {{userInfo.bio}}
+        </div>
+
+        <div class="bio-info">
+          Location: {{userInfo.location}}
+        </div>
+
+        <div class="bio-info">
+          Member Since: {{userInfo.created_at | date}}
+        </div>
+
+        <div class="repos" fxLayout="row">
+          <div>Public Repository: {{userInfo.public_repos}}</div>
+          <div>Public Gists: {{userInfo.public_gists}}</div>
+          <div>Followers: {{userInfo.followers}}</div>
+          <div>Following: {{userInfo.following}}</div>
+        </div>
+
+      </div>
+      <!-- <pre>{{userInfo | json}}</pre> -->
+
+    </div>
+
+  </div>
+
+  <div class="search-box repos-menu">
+    <!-- <mat-button-toggle-group fxLayout="row" fxLayoutAlign="center">
+      <mat-button-toggle value="repos">Repositories</mat-button-toggle>
+      <mat-button-toggle value="gists">Gists</mat-button-toggle>
+      <mat-button-toggle value="subscription">Subscriptions</mat-button-toggle>
+    </mat-button-toggle-group> -->
+
+    <div class="reposTitle">
+      <div >
+        Repositories
+      </div>
+    </div>
+
+    <div class="list-repo" fxLayoutAlign="" >
+      <!-- <pre>{{userRepos | jsn}}</pre> -->
+      <ul fxLayout="column" fxLayoutAlign="center">
+        <li fxLayoutAlign="stsrt center" *ngFor="let item of userRepos">
+          <!-- {{item.name}} -->
+          <div [matTooltip]="'View Repository '+item.name">
+            <a [href]="userInfo.html_url+'/'+item.name">{{item.name}}</a>
+          </div>
+        </li>
+      </ul>
+
+      <!-- <pre>{{userRepos | json}}</pre> -->
+    </div>
+
+  </div>
+
+</div>

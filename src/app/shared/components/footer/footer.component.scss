@@ -1,0 +1,19 @@
+.navbar {
+
+  background-color: #D9DADF;
+  height: 60px;
+  width: 100%;
+  color: black;
+
+  &__footer-title {
+    // border: 1px solid red;1
+
+    .title {
+      font-size: 20px;
+    }
+    .dev-info {
+      font-size: 13px;
+    }
+  }
+
+}
