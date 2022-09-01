@@ -49,6 +49,7 @@ export class HomeComponent implements OnInit {
       this.find.getUser(<string>profile).subscribe((response:any) => {
         if(response.status != 404){
           this.userInfo = response;
+          // this.userInfo = JSON.parse(JSON.stringify(response));
           console.log(this.userInfo);
 
           this.find.getRepos(this.userInfo.repos_url).subscribe((response)=>{

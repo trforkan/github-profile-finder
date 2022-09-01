@@ -6,6 +6,8 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
+
+
 export class GetUserService {
 
   user: any;
@@ -20,12 +22,6 @@ export class GetUserService {
     return this.http.get(url);
   }
 
-  getGists(url: string) {
-    return this.http.get(url);
-  }
-
-  getSubscriptions(url: string) {
-    return this.http.get(url);
-  }
+ 
 
 }
