@@ -12,7 +12,7 @@
 
   <div class="profile-data">
 
-    <div fxLayout="row" fxLayoutAlign="start start" class="search-box profile-details" *ngIf="userInfo">
+    <div fxLayout="row" fxLayout.sm="column" fxLayout.md="column" fxLayout.xs="column" fxLayoutAlign="start start" class="search-box profile-details" *ngIf="userInfo">
 
       <div class="user-information">
         <div class="display-picture">
@@ -26,7 +26,7 @@
         </button>
       </div>
 
-      <div fxLayout="column"  class="user-bio-info">
+      <div fxLayout="column" fxLayoutAlign="start start"  class="user-bio-info">
 
         <div class="bio-info">
           Name: {{userInfo.name}}
