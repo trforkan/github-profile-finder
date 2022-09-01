@@ -20,16 +20,16 @@ export class HomeComponent implements OnInit {
   userSubscriptions: any;
   userGists: any;
 
-  constructor(private find: GetUserService) { }
+  constructor(private apiService: GetUserService) { }
 
   ngOnInit(): void {
 
-    this.find.getUser('f').subscribe((response:any) => {
+    this.apiService.getUser('f').subscribe((response:any) => {
       if(response.status != 404){
         this.userInfo = response;
         console.log(this.userInfo);
 
-        this.find.getRepos(this.userInfo.repos_url).subscribe((response)=>{
+        this.apiService.getRepos(this.userInfo.repos_url).subscribe((response)=>{
           this.userRepos = response;
         });
 
@@ -46,13 +46,13 @@ export class HomeComponent implements OnInit {
 
       let profile = this.userName.value.name;
 
-      this.find.getUser(<string>profile).subscribe((response:any) => {
+      this.apiService.getUser(<string>profile).subscribe((response:any) => {
         if(response.status != 404){
           this.userInfo = response;
           // this.userInfo = JSON.parse(JSON.stringify(response));
           console.log(this.userInfo);
 
-          this.find.getRepos(this.userInfo.repos_url).subscribe((response)=>{
+          this.apiService.getRepos(this.userInfo.repos_url).subscribe((response)=>{
             this.userRepos = response;
           });
 
