@@ -26,7 +26,7 @@
         </button>
       </div>
 
-      <div fxLayout="column" class="user-bio-info">
+      <div fxLayout="column"  class="user-bio-info">
 
         <div class="bio-info">
           Name: {{userInfo.name}}
@@ -52,7 +52,7 @@
           Member Since: {{userInfo.created_at | date}}
         </div>
 
-        <div class="repos" fxLayout="row">
+        <div class="repos" fxLayout.lg="row" fxLayout.md="column" fxLayout.xs="column">
           <div>Public Repository: {{userInfo.public_repos}}</div>
           <div>Public Gists: {{userInfo.public_gists}}</div>
           <div>Followers: {{userInfo.followers}}</div>

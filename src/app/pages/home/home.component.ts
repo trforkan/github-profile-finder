@@ -24,18 +24,18 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
 
-    // this.find.getUser('f').subscribe((response:any) => {
-    //   if(response.status != 404){
-    //     this.userInfo = response;
-    //     console.log(this.userInfo);
+    this.find.getUser('f').subscribe((response:any) => {
+      if(response.status != 404){
+        this.userInfo = response;
+        console.log(this.userInfo);
 
-    //     this.find.getRepos(this.userInfo.repos_url).subscribe((response)=>{
-    //       this.userRepos = response;
-    //     });
+        this.find.getRepos(this.userInfo.repos_url).subscribe((response)=>{
+          this.userRepos = response;
+        });
 
-    //   }
+      }
 
-    // });
+    });
 
   }
 
