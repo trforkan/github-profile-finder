@@ -12,7 +12,7 @@
 
   <div class="profile-data">
 
-    <div fxLayout="row" fxLayoutAlign="start center" class="search-box profile-details" *ngIf="userInfo">
+    <div fxLayout="row" fxLayoutAlign="start start" class="search-box profile-details" *ngIf="userInfo">
 
       <div class="user-information">
         <div class="display-picture">
@@ -52,7 +52,7 @@
           Member Since: {{userInfo.created_at | date}}
         </div>
 
-        <div class="repos" fxLayout.lg="row" fxLayout.md="column" fxLayout.xs="column">
+        <div class="repos" fxLayout="row" fxLayout.lg="row" fxLayout.md="row" fxLayout.xs="column">
           <div>Public Repository: {{userInfo.public_repos}}</div>
           <div>Public Gists: {{userInfo.public_gists}}</div>
           <div>Followers: {{userInfo.followers}}</div>
