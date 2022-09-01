@@ -79,18 +79,25 @@
       </div>
     </div>
 
-    <div class="list-repo" fxLayoutAlign="" >
+    <div class="list-repo" fxLayoutAlign="">
       <!-- <pre>{{userRepos | jsn}}</pre> -->
-      <ul fxLayout="column" fxLayoutAlign="center">
-        <li fxLayoutAlign="stsrt center" *ngFor="let item of userRepos">
-          <!-- {{item.name}} -->
-          <div [matTooltip]="'View Repository '+item.name">
-            <a [href]="userInfo.html_url+'/'+item.name">{{item.name}}</a>
-          </div>
-        </li>
-      </ul>
 
-      <!-- <pre>{{userRepos | json}}</pre> -->
+      <mat-card class="repos-card">
+
+        <div fxLayout="column">
+          <h3>Name: {{userRepos[0].name}}</h3>
+          <span>Description: {{userRepos[0].description}}</span>
+          <span>Created at: {{userRepos[0].created_at | date}}</span>
+          <span>Updated at: {{userRepos[0].updated_at | date}}</span>
+          <span>Forks: {{userRepos[0].forks}}</span>
+          <span>Visibility: {{userRepos[0].visibility}}</span>
+          <span>Comments: {{repoComments[0].length}}</span>
+        </div>
+
+      </mat-card>
+      <!-- {{i}} - > -->
+
+      <!-- <pre>{{item | json}}</pre> -->
     </div>
 
   </div>

@@ -19,6 +19,7 @@ export class HomeComponent implements OnInit {
   userRepos: any;
   userSubscriptions: any;
   userGists: any;
+  repoComments: any[]=[];
 
   constructor(private apiService: GetUserService) { }
 
@@ -31,6 +32,20 @@ export class HomeComponent implements OnInit {
 
         this.apiService.getRepos(this.userInfo.repos_url).subscribe((response)=>{
           this.userRepos = response;
+          console.log("repos=" ,this.userInfo);
+
+
+
+
+          for( let i = 0; i < 30; i++) {
+
+            this.apiService.getComments(`${this.userRepos[i].url}/comments`).subscribe(response => {
+              this.repoComments[i].push = response;
+              console.log("comments: ",this.repoComments[i])
+            })
+
+          }
+
         });
 
       }
@@ -54,6 +69,17 @@ export class HomeComponent implements OnInit {
 
           this.apiService.getRepos(this.userInfo.repos_url).subscribe((response)=>{
             this.userRepos = response;
+            console.log("repos=" ,this.userRepos);
+
+            for( let i = 0; i < 30; i++) {
+
+              this.apiService.getComments(`${this.userRepos[i].url}/comments`).subscribe(response => {
+                this.repoComments[i].push = response;
+                console.log("comments: ",this.repoComments[i])
+              })
+
+            }
+
           });
 
         }

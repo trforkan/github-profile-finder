@@ -22,6 +22,9 @@ export class GetUserService {
     return this.http.get(url);
   }
 
- 
+  getComments(url: string) {
+    return this.http.get(url);
+  }
+
 
 }
