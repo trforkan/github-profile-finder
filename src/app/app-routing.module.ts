@@ -5,6 +5,11 @@ import { HomeComponent } from './pages/components/home/home.component';
 
 const routes: Routes = [
   { path: "", component: HomeComponent }
+
+  {
+    path: "", loadChildren: () => import('./pages/pages.module').then(m => m.HomeComponent),
+    canActivate: [],
+  }
 ];
 
 @NgModule({
