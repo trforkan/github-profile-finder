@@ -62,6 +62,7 @@
   .repos-menu {
 
     .reposTitle {
+      margin-bottom: 20px;
       height: 40px;
       // background-color: #D9DADF;
       background: rgb(217,218,223);
@@ -82,15 +83,55 @@
     }
 
     .list-repo {
+      // width: 100%;
+      // overflow-x: scroll;
+      border-radius: 5px;
+      flex-wrap: wrap;
+      // border: 1px solid red;
+      // display: flex;
+      // justify-content: space-around;
       .repos-card {
-        border: 0.2px solid #F1F1F3;
-        margin-top: 10px;
-        width: 300px;
-        height: 250px;
+        display: inline-block;
+        margin-left: 20px;
+        margin-bottom: 20px;
+        width: 28%;
+        height: 350px;
+        // display: flex ;
+        background-color: #F3F3F5;
+
+        .repos-info {
+          display: flex;
+          justify-content: space-between;
+          // border: 1px solid red;
+          height: 100%;
+          .information {
+            // white-space: nowrap;
+            padding: 10px;
+            overflow: hidden;
+            width: 100%;
+            // border: 1px solid black;
+            h3 {
+              margin: 0;
+              text-overflow: ellipsis;
+              text-align: center;
+              // text-overflow:
+            }
+          }
+        }
+
+        .view-button {
+          a {
+            button {
+              background-color: #43B6C2;
+            }
+          }
+        }
       }
+
       mat-card:hover {
-        box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+        box-shadow: 0 0 11px rgba(33,33,33,.2);
       }
+
     }
   }
 

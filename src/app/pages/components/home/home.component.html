@@ -12,7 +12,7 @@
 
   <div class="profile-data">
 
-    <div fxLayout="row" fxLayout.sm="column" fxLayout.md="column" fxLayout.xs="column" fxLayoutAlign="start start" class="search-box profile-details" *ngIf="userInfo">
+    <div fxLayout="column" fxLayout.sm="column" fxLayout.md="column" fxLayout.xs="column" fxLayoutAlign="center center" class="search-box profile-details" *ngIf="userInfo">
 
       <div class="user-information">
         <div class="display-picture">
@@ -73,31 +73,49 @@
       <mat-button-toggle value="subscription">Subscriptions</mat-button-toggle>
     </mat-button-toggle-group> -->
 
+    <!-- <pre>{{userRepos|json}}</pre> -->
+
     <div class="reposTitle">
       <div >
         Repositories
       </div>
     </div>
 
-    <div class="list-repo" fxLayoutAlign="">
-      <!-- <pre>{{userRepos | jsn}}</pre> -->
+    <div class="list-repo" fxLayout="row"  fxLayoutAlign="space-between" fxLayoutWrap fxLayoutGap="20px">
+      <!-- <pre>{{userRepos[0] | json}}</pre> -->
+      <ng-container *ngFor="let repos of userRepos; index as i">
 
-      <mat-card class="repos-card">
+        <mat-card fxLayout="column" class="repos-card" fxFlex="29">
+          <!-- card -->
+          <div class="repos-info" fxLayout="column" fxLayoutrAlign="space-between">
+            <div class="information">
+              <h3>Name: {{repos.name}}</h3>
+              <h3>Description: {{repos.description}}</h3>
+              <h3>Created at: {{repos.created_at | date}}</h3>
+              <h3>Updated at: {{repos.updated_at | date}}</h3>
+              <h3>Forks: {{repos.forks}}</h3>
+              <h3>Visibility: {{repos.visibility}}</h3>
+            </div>
 
-        <div fxLayout="column">
-          <h3>Name: {{userRepos[0].name}}</h3>
-          <span>Description: {{userRepos[0].description}}</span>
-          <span>Created at: {{userRepos[0].created_at | date}}</span>
-          <span>Updated at: {{userRepos[0].updated_at | date}}</span>
-          <span>Forks: {{userRepos[0].forks}}</span>
-          <span>Visibility: {{userRepos[0].visibility}}</span>
-          <span>Comments: {{repoComments[0].length}}</span>
-        </div>
+            <!-- <h3>Comments: {{repoComments[0].length}}</h3> -->
+            <div class="view-button" fxLayoutAlign="center center">
+              <a [href]="repos.html_url">
+                <button mat-raised-button matTooltip="View repository">
+                  <div >View Repository</div>
+                </button>
+              </a>
+            </div>
+            <!-- <br> -->
+          </div>
 
-      </mat-card>
+        </mat-card>
+
+      </ng-container>
+
+
       <!-- {{i}} - > -->
 
-      <!-- <pre>{{item | json}}</pre> -->
+      <!-- <pre>{{item | json}}</h3re> -->
     </div>
 
   </div>

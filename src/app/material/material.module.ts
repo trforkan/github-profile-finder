@@ -9,7 +9,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatInputModule } from '@angular/material/input';
 import { MatTooltipModule } from '@angular/material/tooltip';
-
+import { MatGridListModule } from '@angular/material/grid-list';
 
 const material = [
   MatIconModule,
@@ -22,7 +22,8 @@ const material = [
   MatRadioModule,
   MatCardModule,
   MatDividerModule,
-  MatTooltipModule
+  MatTooltipModule,
+  MatGridListModule
 ];
 
 @NgModule({

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { GetUserService } from 'src/app/services/get-user.service';
+import { environment } from 'src/environments/environment.prod';
 
 @Component({
   selector: 'app-home',
@@ -30,21 +31,21 @@ export class HomeComponent implements OnInit {
         this.userInfo = response;
         console.log(this.userInfo);
 
-        this.apiService.getRepos(this.userInfo.repos_url).subscribe((response)=>{
+        this.apiService.getRepos(`${this.userInfo.repos_url}?client_id=${environment.clientId}&client_secret=${environment.clientSecretKey}`).subscribe((response)=>{
           this.userRepos = response;
-          console.log("repos=" ,this.userInfo);
+          console.log("repos=" ,this.userRepos);
 
 
 
 
-          for( let i = 0; i < 30; i++) {
+          // for( let i = 0; i < 30; i++) {
 
-            this.apiService.getComments(`${this.userRepos[i].url}/comments`).subscribe(response => {
-              this.repoComments[i].push = response;
-              console.log("comments: ",this.repoComments[i])
-            })
+          //   this.apiService.getComments(`${this.userRepos[i].url}/comments?client_id=${environment.clientId}&client_secret=${environment.clientSecretKey}`).subscribe(response => {
+          //     this.repoComments[i].push = response;
+          //     console.log("comments: ",this.repoComments[i])
+          //   })
 
-          }
+          // }
 
         });
 
@@ -67,18 +68,18 @@ export class HomeComponent implements OnInit {
           // this.userInfo = JSON.parse(JSON.stringify(response));
           console.log(this.userInfo);
 
-          this.apiService.getRepos(this.userInfo.repos_url).subscribe((response)=>{
+          this.apiService.getRepos(`${this.userInfo.repos_url}?client_id=${environment.clientId}&client_secret=${environment.clientSecretKey}`).subscribe((response)=>{
             this.userRepos = response;
             console.log("repos=" ,this.userRepos);
 
-            for( let i = 0; i < 30; i++) {
+            // for( let i = 0; i < 30; i++) {
 
-              this.apiService.getComments(`${this.userRepos[i].url}/comments`).subscribe(response => {
-                this.repoComments[i].push = response;
-                console.log("comments: ",this.repoComments[i])
-              })
+            //   this.apiService.getComments(`${this.userRepos[i].url}/comments?client_id=${environment.clientId}&client_secret=${environment.clientSecretKey}`).subscribe(response => {
+            //     this.repoComments[i].push = response;
+            //     console.log("comments: ",this.repoComments[i])
+            //   })
 
-            }
+            // }
 
           });
 
