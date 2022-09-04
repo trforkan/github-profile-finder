@@ -10,7 +10,7 @@ const routes: Routes = [
   //   path: "pages", loadChildren: './pages/pages.module#pagesModule'
   // }
   {
-    path: '',
+    path: 'github-finder',
     loadChildren: () =>  import('./pages/pages.module').then (module => module.PagesModule)
   }
 ];

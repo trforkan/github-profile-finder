@@ -19,7 +19,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forChild([
-      { path: '', component: HomeComponent }
+      { path: '', component: HomeComponent },
     ]),
 
   ]
