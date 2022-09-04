@@ -1,4 +1,3 @@
-import { MaterialModule } from './material/material.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -10,6 +9,7 @@ import { FooterComponent } from './shared/components/footer/footer.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MaterialModule } from './material/material.module';
 
 
 @NgModule({
@@ -25,8 +25,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FlexLayoutModule,
     MaterialModule,
     HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -4,11 +4,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/components/home/home.component';
 
 const routes: Routes = [
-  { path: "", component: HomeComponent }
+  // { path: "", component: HomeComponent }
 
+  // {
+  //   path: "pages", loadChildren: './pages/pages.module#pagesModule'
+  // }
   {
-    path: "", loadChildren: () => import('./pages/pages.module').then(m => m.HomeComponent),
-    canActivate: [],
+    path: '',
+    loadChildren: () =>  import('./pages/pages.module').then (module => module.PagesModule)
   }
 ];
 

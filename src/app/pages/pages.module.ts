@@ -3,14 +3,14 @@ import { MaterialModule } from './../material/material.module';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { NgModule } from '@angular/core';
-import { APP_BASE_HREF, CommonModule } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 
 @NgModule({
   declarations: [
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     CommonModule,
@@ -19,7 +19,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forChild([
-      { path: "", component: HomeComponent }
+      { path: '', component: HomeComponent }
     ]),
 
   ]
