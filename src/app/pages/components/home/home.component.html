@@ -81,11 +81,11 @@
       </div>
     </div>
 
-    <div class="list-repo" fxLayout="row"  fxLayoutAlign="space-between" fxLayoutWrap fxLayoutGap="20px">
+    <div class="list-repo" fxLayout="row"  fxLayoutAlign="start" fxLayoutWrap >
       <!-- <pre>{{userRepos[0] | json}}</pre> -->
       <ng-container *ngFor="let repos of userRepos; index as i">
 
-        <mat-card fxLayout="column" class="repos-card" fxFlex="29">
+        <mat-card fxLayout="column" class="repos-card">
           <!-- card -->
           <div class="repos-info" fxLayout="column" fxLayoutrAlign="space-between">
             <div class="information">
