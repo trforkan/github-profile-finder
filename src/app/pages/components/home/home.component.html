@@ -15,7 +15,7 @@
     <div fxLayout="column" fxLayout.sm="column" fxLayout.md="column" fxLayout.xs="column" fxLayoutAlign="center center" class="search-box profile-details" *ngIf="userInfo">
 
       <div class="user-information">
-        <div class="display-picture">
+        <div class="display-picture" fxLayoutAlign="center center">
           <img class="dp" [src]="userInfo.avatar_url" alt="">
         </div>
         <button  class="view-profile" mat-icon-button matTooltip="View Profile">
